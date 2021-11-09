@@ -6,5 +6,6 @@ urlpatterns = [
     path('', views.home , name='home'),
     path('add/', views.add_notes ,name='add_notes'),
     path('delete/<int:note_id>', views.delete, name='delete'),
-    path('edit/<int:note_id>', views.edit , name='edit')
+    path('edit/<int:note_id>', views.edit , name='edit'),
+    path('all_notes/',views.all_notes, name='all_notes')
 ]

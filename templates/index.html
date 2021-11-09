@@ -2,20 +2,46 @@
 {% block title %} Home {% endblock title %}
 
 {% block content %}
-    {% if notes %}
-        {% for note in notes %}
-        <div class="card" style="width: 18rem; margin-left: 40%;">
-            <div class="card-body">
-              <h5 class="card-title">{{note.title}}</h5>
-              <p class="card-text">{{note.description}}</p>
-              <a href="{% url 'delete' note_id=note.id %}"> delete</a>
-              <a href="{% url 'edit' note_id=note.id %}"> edit</a>
-            </div>
-          </div>
-        {% endfor %}
-    {% else %}
-    <h3 style="margin-top: 50px;" text-align='center'> Notes list is empty</h3>
-    {% endif %}
-
-    <a class="btn btn-primary btn-lg" href="{% url 'add_notes' %}">Add Notes</a>    
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="background-color: darkorchid; margin-top: 50px;">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="https://img.kpopmap.com/680x384/2018/11/97-female-dreamcatcher-dami-cover.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://www.luxuryholidaynepal.com/uploads/articles/images/mardi-himal-trek.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://www.goodcore.co.uk/blog/wp-content/uploads/2019/08/coding-vs-programming-2-1400x600.jpg" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+{% if notes %}
+  {% for note in notes %}
+    <div class="card" style="width: 18rem; margin-left: 40%;">
+      <div class="card-body">
+        <h5 class="card-title">{{note.title}}</h5>
+        <p class="card-text">{{note.description}}</p>
+        <a href="{% url 'delete' note_id=note.id %}"> delete</a>
+        <a href="{% url 'edit' note_id=note.id %}"> edit</a>
+      </div>
+    </div>
+  {% endfor %}
+{% else %}
+  <h3 style="margin-top: 50px;" text-align='center'> Notes list is empty</h3>
+{% endif %}
+<a class="btn btn-primary btn-md" href="{% url 'add_notes' %}">Add Notes</a> 
+<a class="btn btn-primary btn-md" href="{%url 'all_notes' %}">View All </a>   
 {% endblock content %}
