@@ -4,7 +4,7 @@ from noteapp.models import Note
 
 # Create your views here.
 def home(request):
-    notes = Note.objects.all()[0:2]
+    notes = Note.objects.all()[0:3]
     return render(request, 'index.html', context={'notes':notes})
 def add_notes(request):
     if request.method =='GET':
